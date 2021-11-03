@@ -16,11 +16,18 @@ class HomeVM: ObservableObject {
         return movies.keys.map( { String($0)})
     }
     
+    public func getMovie(forCat cat: String) -> [Movie] {
+        movies[cat] ?? []
+    }
+    
     init() {
         setupMovies()
     }
     
     func setupMovies() {
-        movies["Trending Now"] = [exampleMovie1]
+        movies["Trending Now"] = exampleMovies
+        movies["Stand-Up Comedies"] = exampleMovies.shuffled()
+        movies["New Releases"] = exampleMovies.shuffled()
+        movies["Watch It Again"] = exampleMovies.shuffled()
     }
 }
