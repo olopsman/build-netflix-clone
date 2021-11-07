@@ -28,17 +28,71 @@ let exampleTrailer3 = Trailer(name: "Battle of the Bastards", videoURL: exampleV
 
 let exampleTrailers = [exampleTrailer1, exampleTrailer2, exampleTrailer3]
 
+let episode1 = Episode(
+    name: "Beginnings and Endings",
+    season: 1,
+    episodeNumber: 1,
+    thumbnailURLString: "https://picsum.photos/200/300",
+    description: "Six months after the disappearance. Six months after the disappearance. Six months after the disappearance.",
+    length: 54, videoURL: exampleVideoURL)
+
+let episode2 = Episode(
+    name: "Dark Matter",
+    season: 1,
+    episodeNumber: 2,
+    thumbnailURLString: "https://picsum.photos/200/301",
+    description: "Clausen and Charlotte interview Regina. The stranger takes Hannah to 1987. Clausen and Charlotte interview Regina. The stranger takes Hannah to 1987",
+    length: 54, videoURL: exampleVideoURL)
+
+
+let episode3 = Episode(
+    name: "Ghosts",
+    season: 1,
+    episodeNumber: 3,
+    thumbnailURLString: "https://picsum.photos/200/302",
+    description: "In 1954, a missing Helge returns, but he'll only speak to Noah. In 1954, a missing Helge returns, but he'll only speak to Noah.",
+    length: 54, videoURL: exampleVideoURL)
+
+let episode4 = Episode(
+    name: "Beginnings and Endings",
+    season: 2,
+    episodeNumber: 1,
+    thumbnailURLString: "https://picsum.photos/200/300",
+    description: "Six months after the disappearance. Six months after the disappearance. Six months after the disappearance.",
+    length: 54, videoURL: exampleVideoURL)
+
+let episode5 = Episode(
+    name: "Dark Matter",
+    season: 2,
+    episodeNumber: 2,
+    thumbnailURLString: "https://picsum.photos/200/301",
+    description: "Clausen and Charlotte interview Regina. The stranger takes Hannah to 1987. Clausen and Charlotte interview Regina. The stranger takes Hannah to 1987",
+    length: 54, videoURL: exampleVideoURL)
+
+
+let episode6 = Episode(
+    name: "Ghosts",
+    season: 2,
+    episodeNumber: 3,
+    thumbnailURLString: "https://picsum.photos/200/302",
+    description: "In 1954, a missing Helge returns, but he'll only speak to Noah",
+    length: 54, videoURL: exampleVideoURL)
+
+var allExampleEpisodes = [episode1, episode2, episode3, episode4, episode5, episode6]
+
 let exampleMovie1 = Movie(
     id: UUID().uuidString,
     name: "DARK",
     thumbnailURL: URL(string: "https://picsum.photos/200/300")!,
     categories: ["Dystopian", "Exciting", "Suspenseful", "Sci-fi TV"],
     year: 2020 , rating: "TV-MA",
-    numberOfSeasons: 1,
+    numberOfSeasons: 2,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7], trailers: exampleTrailers)
+    moreLikeThisMovie: [exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7],
+    episodes: allExampleEpisodes,
+    trailers: exampleTrailers)
 let exampleMovie2 = Movie(
     id: UUID().uuidString,
     name: "Travelers",
@@ -57,7 +111,7 @@ let exampleMovie3 = Movie(
     thumbnailURL: URL(string: "https://picsum.photos/200/301")!,
     categories: ["Dystopian", "Exciting", "Suspenseful", "Sci-fi TV"],
     year: 2020 , rating: "TV-MA",
-    numberOfSeasons: 7,
+    numberOfSeasons: 3,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
