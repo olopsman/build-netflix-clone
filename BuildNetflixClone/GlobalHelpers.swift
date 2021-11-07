@@ -104,7 +104,9 @@ let exampleMovie2 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], trailers: exampleTrailers)
+    moreLikeThisMovie: [],
+    episodes: allExampleEpisodes,
+    trailers: exampleTrailers)
 let exampleMovie3 = Movie(
     id: UUID().uuidString,
     name: "Community",
