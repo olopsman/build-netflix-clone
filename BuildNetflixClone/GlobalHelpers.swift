@@ -8,6 +8,26 @@
 import Foundation
 import SwiftUI
 
+let exampleVideoURL = URL(string:
+"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!
+
+let exampleImageURL = URL(string:
+"https://picsum.photos/200/300/")!
+let exampleImageURL1 = URL(string:
+"https://picsum.photos/200/301/")!
+let exampleImageURL2 = URL(string:
+"https://picsum.photos/200/302/")!
+
+var randomExampleImageURL: URL {
+    return [exampleImageURL, exampleImageURL1, exampleImageURL2].randomElement() ?? exampleImageURL
+}
+
+let exampleTrailer1 = Trailer(name: "Season 3 Trailer", videoURL: exampleVideoURL, thumbnailImageURL: exampleImageURL)
+let exampleTrailer2 = Trailer(name: "Hero", videoURL: exampleVideoURL, thumbnailImageURL: exampleImageURL1)
+let exampleTrailer3 = Trailer(name: "Battle of the Bastards", videoURL: exampleVideoURL, thumbnailImageURL: exampleImageURL2)
+
+let exampleTrailers = [exampleTrailer1, exampleTrailer2, exampleTrailer3]
+
 let exampleMovie1 = Movie(
     id: UUID().uuidString,
     name: "DARK",
@@ -17,7 +37,8 @@ let exampleMovie1 = Movie(
     numberOfSeasons: 1,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
-    cast: "Louis Hofman, Oliver Masucni, Joris Slovak")
+    cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
+    moreLikeThisMovie: [exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7], trailers: exampleTrailers)
 let exampleMovie2 = Movie(
     id: UUID().uuidString,
     name: "Travelers",
@@ -28,7 +49,8 @@ let exampleMovie2 = Movie(
     numberOfSeasons: 2,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
-    cast: "Louis Hofman, Oliver Masucni, Joris Slovak")
+    cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
+    moreLikeThisMovie: [], trailers: exampleTrailers)
 let exampleMovie3 = Movie(
     id: UUID().uuidString,
     name: "Community",
@@ -39,7 +61,7 @@ let exampleMovie3 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    promotionHeadline: "New Episode")
+    moreLikeThisMovie: [], promotionHeadline: "New Episode", trailers: exampleTrailers)
 let exampleMovie4 = Movie(
     id: UUID().uuidString,
     name: "Alone",
@@ -50,7 +72,8 @@ let exampleMovie4 = Movie(
     numberOfSeasons: 8,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
-    cast: "Louis Hofman, Oliver Masucni, Joris Slovak")
+    cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
+    moreLikeThisMovie: [], trailers: exampleTrailers)
 let exampleMovie5 = Movie(
     id: UUID().uuidString,
     name: "Hannibal",
@@ -60,7 +83,8 @@ let exampleMovie5 = Movie(
     numberOfSeasons: 5,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
-    cast: "Louis Hofman, Oliver Masucni, Joris Slovak")
+    cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
+    moreLikeThisMovie: [], trailers: exampleTrailers)
 let exampleMovie6 = Movie(
     id: UUID().uuidString,
     name: "After Life",
@@ -72,9 +96,26 @@ let exampleMovie6 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    promotionHeadline: "Watch Season 6 Now")
+    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now", trailers: exampleTrailers
+    )
+let exampleMovie7 = Movie(
+    id: UUID().uuidString,
+    name: "After Life",
+    thumbnailURL: URL(string: "https://picsum.photos/200/304")!,
+    categories: ["Dystopian", "Exciting", "Suspenseful", "Sci-fi TV"],
+    year: 2020 ,
+    rating: "TV-MA",
+    numberOfSeasons: 10,
+    defaultEpisodeInfo: exampleEpisode1,
+    creators: "Martin Scorcese",
+    cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
+    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now", trailers: exampleTrailers
+    )
 
-let exampleMovies : [Movie] = [exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6]
+
+var exampleMovies : [Movie] {
+    [exampleMovie1, exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6].shuffled()
+}
 
 let exampleEpisode1 = CurrentEpisodeInfo(episodeName: "Beginnings and Ending", description: "Six months after the disappearances, the police form a task force in 3052.", season: 2, episode: 1)
 
@@ -82,4 +123,12 @@ extension LinearGradient {
     static let blackOpacityGradient = LinearGradient(
         gradient: Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.95)]), startPoint: .top, endPoint: .bottom
     )
+}
+
+extension String {
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttribute = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttribute)
+        return size.width
+    }
 }
