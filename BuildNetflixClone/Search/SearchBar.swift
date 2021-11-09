@@ -8,19 +8,70 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State private var text: String = ""
+    @Binding var text: String
+    
+    @State private var isEditing = true
+    
+    @Binding var isLoading: Bool
+    
     var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(Color.graySearch)
-                .padding(.leading, 10)
-            TextField("Search", text: $text)
-                .background(Color.grayBackground)
+        ZStack(alignment: .leading) {
+            Color.grayBackground
+                .frame(width: 270, height: 36)
                 .cornerRadius(8)
-                .foregroundColor(.white)
             
-            Text("X")
-                .foregroundColor(.white)
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color.graySearch)
+                    .padding(.leading, 10)
+                TextField("Search", text: $text)
+                    .padding(7)
+                    .padding(.leading, -7)
+                    .background(Color.grayBackground)
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
+                    .onTapGesture {
+                        isEditing = true
+                    }
+                
+                if !text.isEmpty {
+                    if isLoading {
+                        
+                        Button(action: {
+                            text = ""
+                        }){
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        }
+                        .padding(.trailing, 32)
+                        .frame(width: 35, height: 35)
+                    } else {
+                        Button(action: {
+                            text = ""
+                        }){
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.graySearch)
+                            
+                        }
+                        .frame(width: 35, height: 35)
+                        .padding(.trailing, 18)
+                        
+                    }
+                }
+                
+                if isEditing {
+                    Button(action: {
+                        text = ""
+                        isEditing = false
+                        //give up first-responder
+                        hideKeyboard()
+                    }){
+                        Text("Cancel")
+                            .foregroundColor(.white)
+                    }
+                    .padding(.trailing, 10)
+                }
+            }
         }
     }
 }
@@ -30,7 +81,9 @@ struct SearchBar_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .ignoresSafeArea(.all)
-            SearchBar()
+            SearchBar(text: .constant(""), isLoading: .constant(false))
+                .padding()
         }
+.previewInterfaceOrientation(.portrait)
     }
 }
