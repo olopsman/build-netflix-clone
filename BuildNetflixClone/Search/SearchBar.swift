@@ -14,6 +14,8 @@ struct SearchBar: View {
     
     @Binding var isLoading: Bool
     
+    var poc = "tesst **bold okay ** ano kaya"
+    
     var body: some View {
         ZStack(alignment: .leading) {
             Color.grayBackground
@@ -33,6 +35,7 @@ struct SearchBar: View {
                     .onTapGesture {
                         isEditing = true
                     }
+                    .animation(.default, value: isEditing)
                 
                 if !text.isEmpty {
                     if isLoading {
@@ -70,6 +73,8 @@ struct SearchBar: View {
                             .foregroundColor(.white)
                     }
                     .padding(.trailing, 10)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default, value: isEditing)
                 }
             }
         }
