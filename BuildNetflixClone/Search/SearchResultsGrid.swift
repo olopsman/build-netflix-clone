@@ -20,13 +20,13 @@ struct SearchResultsGrid: View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(movies, id:\.id) { movie in
                 StandardHomeMovie(movie: movie)
+                    .frame(height: 160)
                     .onTapGesture {
                         movieDetailToShow = movie
                     }
 
             }
         }
-        .frame(height: 230)
     }
 }
 
