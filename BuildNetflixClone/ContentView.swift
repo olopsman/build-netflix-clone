@@ -29,10 +29,10 @@ struct ContentView: View {
                     Image(systemName: "play.rectangle")
                     Text("Coming Soon")
                 }.tag(2)
-            Text("Downloads")
+            DownloadView()
                 .tabItem {
                     Image(systemName: "arrow.down.to.line.alt")
-                    Text("3")
+                    Text("Downloads")
                 }.tag(3)
             Text("More")
                 .tabItem {

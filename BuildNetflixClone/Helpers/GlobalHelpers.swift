@@ -92,7 +92,10 @@ let exampleMovie1 = Movie(
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
     moreLikeThisMovie: [exampleMovie2, exampleMovie3, exampleMovie4, exampleMovie5, exampleMovie6, exampleMovie7],
     episodes: allExampleEpisodes,
-    trailers: exampleTrailers)
+    trailers: exampleTrailers,
+    previewImageName: "ozarkPreview",
+    previewVideoURL: exampleVideoURL
+)
 let exampleMovie2 = Movie(
     id: UUID().uuidString,
     name: "Travelers",
@@ -106,7 +109,12 @@ let exampleMovie2 = Movie(
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
     moreLikeThisMovie: [],
     episodes: allExampleEpisodes,
-    trailers: exampleTrailers)
+    trailers: exampleTrailers,
+    previewImageName: "dirtyJohnPreview",
+    previewVideoURL: exampleVideoURL
+
+
+)
 let exampleMovie3 = Movie(
     id: UUID().uuidString,
     name: "Community",
@@ -117,7 +125,13 @@ let exampleMovie3 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], promotionHeadline: "New Episode", trailers: exampleTrailers)
+    moreLikeThisMovie: [],
+    promotionHeadline: "New Episode",
+    trailers: exampleTrailers,
+    previewImageName: "travelersPreview",
+    previewVideoURL: exampleVideoURL
+
+)
 let exampleMovie4 = Movie(
     id: UUID().uuidString,
     name: "Alone",
@@ -129,7 +143,12 @@ let exampleMovie4 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], trailers: exampleTrailers)
+    moreLikeThisMovie: [],
+    trailers: exampleTrailers,
+    previewImageName: "arrestedDevPreview",
+    previewVideoURL: exampleVideoURL
+
+)
 let exampleMovie5 = Movie(
     id: UUID().uuidString,
     name: "Hannibal",
@@ -140,7 +159,12 @@ let exampleMovie5 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], trailers: exampleTrailers)
+    moreLikeThisMovie: [],
+    trailers: exampleTrailers,
+    previewImageName: "whiteLinesPreview",
+    previewVideoURL: exampleVideoURL
+
+)
 let exampleMovie6 = Movie(
     id: UUID().uuidString,
     name: "After Life",
@@ -152,7 +176,11 @@ let exampleMovie6 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now", trailers: exampleTrailers
+    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now",
+    trailers: exampleTrailers,
+    previewImageName: "darkPreview",
+    previewVideoURL: exampleVideoURL
+
     )
 let exampleMovie7 = Movie(
     id: UUID().uuidString,
@@ -165,7 +193,10 @@ let exampleMovie7 = Movie(
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
-    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now", trailers: exampleTrailers
+    moreLikeThisMovie: [], promotionHeadline: "Watch Season 6 Now", trailers: exampleTrailers,
+    previewImageName: "darkPreview",
+    previewVideoURL: exampleVideoURL
+
     )
 
 
