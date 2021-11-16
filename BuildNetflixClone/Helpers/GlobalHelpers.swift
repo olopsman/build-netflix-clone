@@ -87,6 +87,7 @@ let exampleMovie1 = Movie(
     categories: ["Dystopian", "Exciting", "Suspenseful", "Sci-fi TV"],
     year: 2020 , rating: "TV-MA",
     numberOfSeasons: 2,
+    accentColor: Color.blue,
     defaultEpisodeInfo: exampleEpisode1,
     creators: "Martin Scorcese",
     cast: "Louis Hofman, Oliver Masucni, Joris Slovak",
