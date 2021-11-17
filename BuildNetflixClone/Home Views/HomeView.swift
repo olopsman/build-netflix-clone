@@ -41,7 +41,7 @@ struct HomeView: View {
                     
                     MoviePreviewRow(movies: exampleMovies, showPreviewFullScree: $showPreviewFullScree, previewStartingIndex: $previewStartingIndex)
                     
-                    HomeStack(vm: vm, topRowSelection: topRowSelection, selectedGenre: homeGenre, movieDetailToShow: $movieDetailToShow, showPreviewFullScree: $showPreviewFullScree, previewStartingIndex: $previewStartingIndex)
+                    HomeStack(vm: vm, topRowSelection: topRowSelection, selectedGenre: homeGenre, movieDetailToShow: $movieDetailToShow)
                 }
             }
             

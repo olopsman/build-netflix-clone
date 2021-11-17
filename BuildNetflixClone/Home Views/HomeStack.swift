@@ -1,24 +1,24 @@
 //
 //  HomeStack.swift
-//  BuildNetflixClone
+//  iOS
 //
-//  Created by Paulo Orquillo on 8/11/21.
+//  Created by Nikita Thomas on 8/1/20.
 //
 
 import Foundation
 import SwiftUI
 
+
 struct HomeStack: View {
     var vm: HomeVM
+    
     var topRowSelection: HomeTopRow
     var selectedGenre: HomeGenre
+    
     @Binding var movieDetailToShow: Movie?
     
-    @Binding var showPreviewFullScree: Bool
-    @Binding var previewStartingIndex: Int
-    
     var body: some View {
-        ForEach(vm.allCategories, id:\.self) { category in
+        ForEach(vm.allCategories, id: \.self) { category in
             VStack {
                 HStack {
                     Text(category)
@@ -32,9 +32,9 @@ struct HomeStack: View {
                         ForEach(vm.getMovie(forCat: category, andHomeRow: topRowSelection, andGenre: selectedGenre)) { movie in
                             StandardHomeMovie(movie: movie)
                                 .frame(width: 135, height: 200)
-                                .onTapGesture {
+                                .onTapGesture(perform: {
                                     movieDetailToShow = movie
-                                }
+                                })
                         }
                     }
                 }
@@ -49,8 +49,9 @@ struct HomeStack_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
+            
             ScrollView {
-                HomeStack(vm: HomeVM(), topRowSelection: .home, selectedGenre: .AllGenres, movieDetailToShow: .constant(nil), showPreviewFullScree: .constant(false), previewStartingIndex: .constant(0))
+                HomeStack(vm: HomeVM(), topRowSelection: .home, selectedGenre: .AllGenres, movieDetailToShow: .constant(nil))
             }
             .foregroundColor(.white)
         }
